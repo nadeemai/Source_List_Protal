@@ -1,0 +1,74 @@
+<mvc:View
+    controllerName="com.tableentry.tablestructure.controller.Table_Entry"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.f">
+
+    <f:FlexibleColumnLayout id="flexibleColumnLayout" layout="OneColumn">
+        <f:beginColumnPages>
+            <Page id="productsPage" title="Products">
+                <l:VerticalLayout id="_IDGenVerticalLayout" width="100%">
+                    <Toolbar id="_IDGenToolbar">
+                        <ToolbarSpacer id="_IDGenToolbarSpacer" />
+                        <Button id="cancelButton" text="Cancel" press=".onCancelPress" visible="false" />
+                        <Button id="fullScreenButton" icon="sap-icon://full-screen" press=".onFullScreenPress" />
+                    </Toolbar>
+
+                    <Table
+                        id="productsTable"
+                        items="{products>/items}"
+                        width="auto"
+                        mode="SingleSelectLeft"
+                        selectionChange=".onTableSelectionChange">
+                        <columns>
+                            <Column id="_IDGenColumn">
+                                <Text id="_IDGenText" text="Product" />
+                            </Column>
+                            <Column id="_IDGenColumn1">
+                                <Text id="_IDGenText1" text="Quantity" />
+                            </Column>
+                            <Column id="_IDGenColumn2">
+                                <Text id="_IDGenText2" text="Weight" />
+                            </Column>
+                            <Column id="_IDGenColumn3">
+                                <Text id="_IDGenText3" text="Price" />
+                            </Column>
+                            <Column id="_IDGenColumn4">
+                                <Text id="_IDGenText4" text="Actions" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem">
+                                <cells>
+                                    <VBox id="_IDGenVBox">
+                                        <Text id="_IDGenText5" text="{products>product}" />
+                                        <Text id="_IDGenText6" text="{products>productCode}" />
+                                    </VBox>
+                                    <Text id="_IDGenText7" text="{products>quantity}" />
+                                    <Text id="_IDGenText8" text="{products>weight}" />
+                                    <Text id="_IDGenText9" text="{products>price}" />
+                                    <Button id="_IDGenButton"
+                                        icon="sap-icon://edit"
+                                        press=".onEditPress"
+                                        type="Transparent" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                    <Toolbar id="_IDGenToolbar1">
+                        <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                        <Button id="_IDGenButton2" text="Order" press=".onOrderPress" />
+                    </Toolbar>
+                </l:VerticalLayout>
+            </Page>
+        </f:beginColumnPages>
+        <f:midColumnPages>
+            <Page id="detailPage" title="Product Details">
+                <l:VerticalLayout id="detailLayout" width="100%">
+                    </l:VerticalLayout>
+            </Page>
+        </f:midColumnPages>
+    </f:FlexibleColumnLayout>
+</mvc:View>
