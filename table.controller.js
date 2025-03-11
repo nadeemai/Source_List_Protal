@@ -18,7 +18,24 @@ sap.ui.define([
                     { product: "Notebook Basic 19", productCode: "HT-1003", quantity: "15 PC", weight: "4.2 KG", price: "1,650.00 EUR" },
                     { product: "ITelO Vault", productCode: "HT-1007", quantity: "15 PC", weight: "0.2 KG", price: "299.00 EUR" },
                     { product: "Notebook Professional 15", productCode: "HT-1010", quantity: "16 PC", weight: "4.3 KG", price: "1,999.00 EUR" },
-                    { product: "Notebook Professional 17", productCode: "", quantity: "17 PC", weight: "4.1 KG", price: "2,299.00 EUR" }
+                    { product: "Notebook Professional 17", productCode: "HT-6969", quantity: "17 PC", weight: "4.1 KG", price: "2,299.00 EUR" },
+                    { product: "Notebook Professional 20", productCode: "HT-1000", quantity: "10 PC", weight: "4.2 KG", price: "9,564.00 EUR" },
+                    { product: "ITelO Vault", productCode: "HT-1007", quantity: "15 PC", weight: "10.2 KG", price: "299.00 EUR" },
+                    { product: "Notebook Professional 15", productCode: "HT-1010", quantity: "16 PC", weight: "4.3 KG", price: "1,999.00 EUR" },
+                    { product: "Notebook Professional 17", productCode: "HT-6969", quantity: "17 PC", weight: "4.1 KG", price: "2,299.00 EUR" },
+                    { product: "Notebook Professional 20", productCode: "HT-1000", quantity: "10 PC", weight: "4.2 KG", price: "9,564.00 EUR" },
+                    { product: "Notebook Basic 15", productCode: "HT-1000", quantity: "10 PC", weight: "4.2 KG", price: "9,564.00 EUR" },
+                    { product: "Notebook Basic 17", productCode: "HT-1001", quantity: "20 PC", weight: "4.5 KG", price: "1,249.00 EUR" },
+                    { product: "Notebook Basic 18", productCode: "HT-1002", quantity: "10 PC", weight: "4.2 KG", price: "1,570.00 EUR" },
+                    { product: "Notebook Basic 19", productCode: "HT-1003", quantity: "15 PC", weight: "4.2 KG", price: "1,650.00 EUR" },
+                    { product: "ITelO Vault", productCode: "HT-1007", quantity: "15 PC", weight: "0.2 KG", price: "299.00 EUR" },
+                    { product: "Notebook Professional 15", productCode: "HT-1010", quantity: "16 PC", weight: "4.3 KG", price: "1,999.00 EUR" },
+                    { product: "Notebook Professional 17", productCode: "HT-6969", quantity: "17 PC", weight: "4.1 KG", price: "2,299.00 EUR" },
+                    { product: "Notebook Professional 20", productCode: "HT-1000", quantity: "10 PC", weight: "4.2 KG", price: "9,564.00 EUR" },
+                    { product: "ITelO Vault", productCode: "HT-1007", quantity: "15 PC", weight: "10.2 KG", price: "299.00 EUR" },
+                    { product: "Notebook Professional 15", productCode: "HT-1010", quantity: "16 PC", weight: "4.3 KG", price: "1,999.00 EUR" },
+                    { product: "Notebook Professional 17", productCode: "HT-6969", quantity: "17 PC", weight: "4.1 KG", price: "2,299.00 EUR" },
+                    { product: "Notebook Professional 20", productCode: "HT-1000", quantity: "10 PC", weight: "4.2 KG", price: "9,564.00 EUR" }
                 ]
             };
             var oModel = new JSONModel(oData);
@@ -81,6 +98,23 @@ sap.ui.define([
             }
         },
 
+        onDeletePress: function (oEvent) {
+            var oButton = oEvent.getSource();
+            var oItem = oButton.getParent();
+            var oTable = this.byId("productsTable");
+            var oModel = this.getView().getModel("products");
+            var aItems = oModel.getProperty("/items");
+
+            var oContext = oItem.getBindingContext("products");
+            var sPath = oContext.getPath();
+            var iIndex = sPath.split("/").pop();
+
+            aItems.splice(iIndex, 1);
+            oModel.setProperty("/items", aItems);
+
+            MessageBox.success("Data deleted successfully.");
+        },
+
         onSavePress: function () {
             MessageBox.success("Changes saved successfully.");
         },
@@ -93,5 +127,6 @@ sap.ui.define([
         onOrderPress: function () {
             MessageBox.information("Order button pressed.");
         }
-    }); 
+    });
 });
+
