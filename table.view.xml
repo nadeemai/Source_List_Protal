@@ -13,6 +13,7 @@
                         <ToolbarSpacer id="_IDGenToolbarSpacer" />
                         <Button id="cancelButton" text="Cancel" press=".onCancelPress" visible="false" />
                         <Button id="fullScreenButton" icon="sap-icon://full-screen" press=".onFullScreenPress" />
+                        <Button id="exitFullScreenButton" icon="sap-icon://exit-full-screen" press=".onExitFullScreenPress" visible="false" />
                     </Toolbar>
 
                     <Table
@@ -67,7 +68,8 @@
         <f:midColumnPages>
             <Page id="detailPage" title="Product Details">
                 <l:VerticalLayout id="detailLayout" width="100%">
-                    </l:VerticalLayout>
+                    <Text id="detailText" />
+                </l:VerticalLayout>
             </Page>
         </f:midColumnPages>
     </f:FlexibleColumnLayout>
