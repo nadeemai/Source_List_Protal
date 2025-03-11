@@ -11,7 +11,7 @@
                 <l:VerticalLayout id="_IDGenVerticalLayout" width="100%">
                     <Toolbar id="_IDGenToolbar">
                         <ToolbarSpacer id="_IDGenToolbarSpacer" />
-                        <Button id="cancelButton" text="Cancel" press=".onCancelPress" visible="false" />
+                        <Button id="cancelButton" icon="sap-icon//cancel" press=".onCancelPress" visible="false" />
                         <Button id="fullScreenButton" icon="sap-icon://full-screen" press=".onFullScreenPress" />
                         <Button id="exitFullScreenButton" icon="sap-icon://exit-full-screen" press=".onExitFullScreenPress" visible="false" />
                     </Toolbar>
@@ -38,6 +38,9 @@
                             <Column id="_IDGenColumn4">
                                 <Text id="_IDGenText4" text="Actions" />
                             </Column>
+                            <Column id="_IDGenColumn45">
+                                <Text id="_IDGenText45" text="Remove" />
+                            </Column>
                         </columns>
                         <items>
                             <ColumnListItem id="_IDGenColumnListItem">
@@ -53,6 +56,10 @@
                                         icon="sap-icon://edit"
                                         press=".onEditPress"
                                         type="Transparent" />
+                                    <Button id="_IDGenButton1"
+                                        icon="sap-icon://delete"
+                                        press=".onDeletePress"
+                                        type="Transparent" />
                                 </cells>
                             </ColumnListItem>
                         </items>
@@ -61,7 +68,7 @@
                     <Toolbar id="_IDGenToolbar1">
                         <ToolbarSpacer id="_IDGenToolbarSpacer1" />
                         <Button id="_IDGenButton2" text="Order" press=".onOrderPress" />
-                    </Toolbar>
+                    </Toolbar>  
                 </l:VerticalLayout>
             </Page>
         </f:beginColumnPages>
