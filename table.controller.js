@@ -93,5 +93,5 @@ sap.ui.define([
         onOrderPress: function () {
             MessageBox.information("Order button pressed.");
         }
-    });
+    }); 
 });
