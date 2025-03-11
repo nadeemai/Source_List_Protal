@@ -34,7 +34,6 @@ sap.ui.define([
                 var oDetailLayout = this.byId("detailLayout");
                 oDetailLayout.removeAllItems();
 
-                // Add detail information
                 oDetailLayout.addItem(new Text({ text: "Product: " + oData.product }));
                 oDetailLayout.addItem(new Text({ text: "Product Code: " + oData.productCode }));
                 oDetailLayout.addItem(new Text({ text: "Quantity: " + oData.quantity }));
@@ -64,17 +63,21 @@ sap.ui.define([
             if (oButton.getIcon() === "sap-icon://edit") {
                 oButton.setIcon("sap-icon://save");
 
-                var oQuantityText = aCells[1];
-                var oQuantityInput = new Input({ value: oQuantityText.getText() });
-                oItem.removeCell(oQuantityText);
-                oItem.insertCell(oQuantityInput, 1);
+                for (var i = 1; i < 4; i++) {
+                    var oText = aCells[i];
+                    var oInput = new Input({ value: oText.getText() });
+                    oItem.removeCell(oText);
+                    oItem.insertCell(oInput, i);
+                }
             } else {
                 oButton.setIcon("sap-icon://edit");
 
-                var oQuantityInput = aCells[1];
-                var oQuantityText = new Text({ text: oQuantityInput.getValue() });
-                oItem.removeCell(oQuantityInput);
-                oItem.insertCell(oQuantityText, 1);
+                for (var i = 1; i < 4; i++) {
+                    var oInput = aCells[i];
+                    var oText = new Text({ text: oInput.getValue() });
+                    oItem.removeCell(oInput);
+                    oItem.insertCell(oText, i);
+                }
             }
         },
 
